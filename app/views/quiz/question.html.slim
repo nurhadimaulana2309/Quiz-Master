@@ -1,0 +1,11 @@
+.container
+  .row.row-form
+    .col-md-8.col-md-offset-2.col-xs-12
+      - if @question
+        h4 = @question.content.html_safe
+        = simple_form_for :question, url: quiz_check_answer_path(@question) do |f|
+          = f.input :answer, required: true, label: false, input_html: {value: nil, autocomplete: "off", placeholder: "Your answer here..."}, validate: { presence: true }
+          = f.button :submit, "Submit", class: "btn btn-primary"
+      - else
+        h4 Question is not available
+      p.text-right = "Question number #{session[:question_number]} from total #{pluralize(Question.count, 'question')}"

@@ -1,0 +1,14 @@
+.container
+  .row.row-form
+    .col-md-8.col-md-offset-2.col-xs-12.box-show-question
+      p
+        strong Content:
+        = @question.content.html_safe
+      p
+        strong Answer:
+        p = @question.answer
+
+      .text-center
+        = link_to 'Edit Question', edit_question_path(@question), class: "btn btn-primary"
+        | &nbsp;
+        = link_to 'Back to Questions', questions_path, class: "btn btn-warning"

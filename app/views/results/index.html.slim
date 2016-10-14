@@ -1,0 +1,7 @@
+.container
+  .row.row-form
+    .col-md-8.col-md-offset-2.col-xs-12.text-center
+      h1 = "Your score is #{@result_score}"
+      h4 = "From total #{pluralize(Question.count, 'question')}"
+      hr
+      = link_to "Back to Homepage", root_path, class: "btn btn-primary"
